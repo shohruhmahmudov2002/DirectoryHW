@@ -1,0 +1,15 @@
+# Ignore the Visual Studio .vs folder
+.vs/
+
+# Ignore log files
+*.log
+
+# Ignore build outputs
+/bin/
+/obj/
+
+# Ignore sln file
+*.sln
+
+# Ignore csproj file
+*.csproj
