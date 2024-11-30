@@ -53,7 +53,7 @@ namespace DirectoryHW
             int limit = 50;
             int count = 0;
             Console.WriteLine(path);
-            Console.WriteLine($"{"File/Folder (Names)",-40} {"Size (Bytes)",-20}\n");
+            Console.WriteLine($"{"File/Folder (Names)",-50}\t {"Size (Bytes)",-5}\n");
             var directoriesAndFolders = new List<string>();
             if (Directory.Exists(path)) 
             {
@@ -65,12 +65,14 @@ namespace DirectoryHW
                 if (Directory.Exists(items)) 
                 {
                     DirectoryInfo folder = new DirectoryInfo(items);
-                    Console.WriteLine($"..{folder.Name,-40}");
+                    string folderName = folder.Name.Length > limit ? folder.Name.Substring(0,limit) + "..." : folder.Name;
+                    Console.WriteLine($"..{folderName,-50}");
                 }
                 if(File.Exists(items))
                 {
                     FileInfo file = new FileInfo(items);
-                    Console.WriteLine($"..{file.Name,-40} {file.Length,-5} bytes");
+                    string fileName = file.Name.Length > limit ? file.Name.Substring(0,limit) + "..." : file.Name;
+                    Console.WriteLine($"..{fileName,-50}\t {file.Length} bytes");
                 }
                 count++;
             }
